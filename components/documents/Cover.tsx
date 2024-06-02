@@ -65,10 +65,14 @@ const Cover = ({ url, preview }: CoverProps) => {
   );
 };
 
-export default Cover;
+Cover.displayName = "Cover";
 
-Cover.Skeleton = () => (
-  <div className="w-full h-[12vh]">
-    <Skeleton />
-  </div>
-);
+Cover.Skeleton = () => {
+  return (
+    <div className="w-full h-[12vh]">
+      <Skeleton />
+    </div>
+  );
+};
+
+export default Cover;

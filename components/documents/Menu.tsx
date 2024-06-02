@@ -60,6 +60,8 @@ const Menu = ({ documentId }: MenuProps) => {
   );
 };
 
+Menu.displayName = "Menu";
+
 Menu.Skeleton = () => {
   return <Skeleton className="h-10 w-10" />;
 };

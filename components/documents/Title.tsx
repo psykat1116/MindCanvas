@@ -69,8 +69,10 @@ const Title = ({ initialData }: TitleProps) => {
   );
 };
 
-export default Title;
+Title.displayName = "Title";
 
 Title.Skeleton = () => {
   return <Skeleton className="h-3 w-16 rounded-md" />;
 };
+
+export default Title;
