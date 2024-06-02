@@ -1,9 +1,9 @@
-import Navbar from "@/components/marketing/Navbar";
 import React from "react";
+import Navbar from "@/components/marketing/Navbar";
 
 const MarketingLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-full dark:bg-dark">
+    <div className="h-full dark:bg-dark">
       <Navbar />
       <main className="pt-40">{children}</main>
     </div>

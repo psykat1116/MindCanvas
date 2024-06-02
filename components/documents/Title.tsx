@@ -1,11 +1,11 @@
 "use client";
-import { Doc } from "@/convex/_generated/dataModel";
-import { useMutation } from "convex/react";
-import { api } from "@/convex/_generated/api";
 import { useRef, useState } from "react";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-import { Skeleton } from "../ui/skeleton";
+import { useMutation } from "convex/react";
+import { Doc } from "@/convex/_generated/dataModel";
+import { api } from "@/convex/_generated/api";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface TitleProps {
   initialData: Doc<"documents">;
@@ -13,11 +13,11 @@ interface TitleProps {
 
 const Title = ({ initialData }: TitleProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const update = useMutation(api.document.update);
-
   const [title, setTitle] = useState(initialData.title);
   const [isEditing, setIsEditing] = useState(false);
+  const update = useMutation(api.document.update);
 
+  // Enable input for editing
   const enableInput = () => {
     setTitle(initialData.title);
     setIsEditing(true);
@@ -27,10 +27,12 @@ const Title = ({ initialData }: TitleProps) => {
     }, 0);
   };
 
+  // Disable input after editing
   const disableInput = () => {
     setIsEditing(false);
   };
 
+  // Update title on enter key press
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();

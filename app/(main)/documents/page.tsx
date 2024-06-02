@@ -1,19 +1,20 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { useUser } from "@clerk/clerk-react";
-import { useMutation } from "convex/react";
-import { PlusCircle } from "lucide-react";
-import { api } from "@/convex/_generated/api";
-import Image from "next/image";
 import React from "react";
-import { toast } from "sonner";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useMutation } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { useUser } from "@clerk/clerk-react";
+import { Button } from "@/components/ui/button";
+import { PlusCircle } from "lucide-react";
+import { toast } from "sonner";
 
 const Page = () => {
   const router = useRouter();
   const { user } = useUser();
   const create = useMutation(api.document.create);
 
+  // Create a new document
   const onCreate = async () => {
     const promise = create({ title: "Untitled" }).then((documentId) => {
       router.push(`/documents/${documentId}`);

@@ -1,15 +1,15 @@
 "use client";
 import React from "react";
+import { useParams } from "next/navigation";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { useParams } from "next/navigation";
 import { Id } from "@/convex/_generated/dataModel";
-import { AlignLeft } from "lucide-react";
 import Title from "@/components/documents/Title";
 import Banner from "./Banner";
 import Menu from "./Menu";
 import Publish from "./Publish";
 import { cn } from "@/lib/utils";
+import { AlignLeft } from "lucide-react";
 import { useMediaQuery } from "usehooks-ts";
 
 interface MainNavbarProps {

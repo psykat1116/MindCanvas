@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
-import { Id } from "@/convex/_generated/dataModel";
+import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/clerk-react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -8,14 +9,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
-import { useRouter } from "next/navigation";
-import { useUser } from "@clerk/clerk-react";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { toast } from "sonner";
+import { Id } from "@/convex/_generated/dataModel";
 import { Button } from "@/components/ui/button";
-import { Ellipsis, Trash } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Ellipsis, Trash } from "lucide-react";
+import { toast } from "sonner";
 
 interface MenuProps {
   documentId: Id<"documents">;
@@ -25,6 +25,8 @@ const Menu = ({ documentId }: MenuProps) => {
   const router = useRouter();
   const { user } = useUser();
   const archive = useMutation(api.document.archive);
+
+  // Archive document
   const onArchive = () => {
     const promise = archive({ id: documentId });
     toast.promise(promise, {
@@ -34,6 +36,7 @@ const Menu = ({ documentId }: MenuProps) => {
     });
     router.push("/documents");
   };
+  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

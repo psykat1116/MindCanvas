@@ -1,11 +1,7 @@
 "use client";
-
 import { useEffect, useState } from "react";
-import { File } from "lucide-react";
-import { useQuery } from "convex/react";
 import { useRouter } from "next/navigation";
-import { useUser } from "@clerk/clerk-react";
-
+import { File } from "lucide-react";
 import {
   CommandDialog,
   CommandEmpty,
@@ -14,8 +10,10 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { useSearch } from "@/hooks/useSearch";
+import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import { useUser } from "@clerk/clerk-react";
+import { useSearch } from "@/hooks/useSearch";
 
 const SearchCommand = () => {
   const router = useRouter();
@@ -40,6 +38,7 @@ const SearchCommand = () => {
     return () => document.removeEventListener("keydown", down);
   }, [toggle]);
 
+  // Redirect to document page
   const onSelect = (id: string) => {
     router.push(`/documents/${id}`);
     onClose();

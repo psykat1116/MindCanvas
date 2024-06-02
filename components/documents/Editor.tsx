@@ -1,11 +1,11 @@
 "use client";
+import { useEffect } from "react";
+import { useTheme } from "next-themes";
+import { useEdgeStore } from "@/lib/edgestore";
 import { useCreateBlockNote } from "@blocknote/react";
 import { BlockNoteView } from "@blocknote/mantine";
 import "@blocknote/core/fonts/inter.css";
 import "@blocknote/mantine/style.css";
-import { useTheme } from "next-themes";
-import { useEffect } from "react";
-import { useEdgeStore } from "@/lib/edgestore";
 
 interface EditorProps {
   initialContent?: string;
@@ -17,11 +17,13 @@ const Editor = ({ initialContent, onChange, editable }: EditorProps) => {
   const { resolvedTheme } = useTheme();
   const { edgestore } = useEdgeStore();
 
+  // Handle File Upload
   const handleUpload = async (file: File) => {
     const response = await edgestore.publicFiles.upload({ file });
     return response.url;
   };
 
+  // Create BlockNote Editor
   const editor = useCreateBlockNote({ uploadFile: handleUpload });
 
   useEffect(() => {
@@ -34,6 +36,7 @@ const Editor = ({ initialContent, onChange, editable }: EditorProps) => {
     loadInitialData();
   }, [editor]);
 
+  // Handle Note Data Change Event
   const handleChange = async () => {
     const content = await editor.blocksToHTMLLossy(editor.document);
     onChange(content);

@@ -1,16 +1,15 @@
 "use client";
 import React from "react";
-import { ChevronsLeftRight, LogOut, Trash } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuLabel,
   DropdownMenuTrigger,
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { SignOutButton, useUser } from "@clerk/clerk-react";
+import { ChevronsLeftRight, LogOut } from "lucide-react";
 
 const UserItem = () => {
   const { user } = useUser();

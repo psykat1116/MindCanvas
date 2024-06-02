@@ -1,8 +1,8 @@
 "use client";
-import { Dialog, DialogHeader, DialogContent } from "@/components/ui/dialog";
 import { useSettings } from "@/hooks/useSettings";
 import { Label } from "@/components/ui/label";
 import ThemeToggle from "@/components/ThemeToggle";
+import { Dialog, DialogHeader, DialogContent } from "@/components/ui/dialog";
 
 const SettingModal = () => {
   const { isOpen, onClose } = useSettings();
@@ -14,7 +14,7 @@ const SettingModal = () => {
         </DialogHeader>
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-y-1">
-            <label>Appearence</label>
+            <Label>Appearence</Label>
             <span className="text-[0.8rem] text-muted-foreground">
               Customize How MindCanvas Looks On Your Device
             </span>

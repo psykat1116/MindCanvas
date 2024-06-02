@@ -18,17 +18,19 @@ const TrashBox = () => {
   const restore = useMutation(api.document.restore);
   const remove = useMutation(api.document.remove);
   const { edgestore } = useEdgeStore();
-
   const [search, setSearch] = useState("");
 
+  // Filter documents by search
   const filterDocuments = documents?.filter((doc) =>
     doc.title.toLowerCase().includes(search.toLowerCase())
   );
 
+  // Redirect to document page
   const onClick = async (id: string) => {
     router.push(`/documents/${id}`);
   };
 
+  // Restore document
   const onRestore = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
     documentId: Id<"documents">
@@ -42,6 +44,7 @@ const TrashBox = () => {
     });
   };
 
+  // Remove document
   const onRemove = async (documentId: Id<"documents">) => {
     const promise = remove({ id: documentId });
     toast.promise(promise, {

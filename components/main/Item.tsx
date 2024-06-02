@@ -1,5 +1,6 @@
 "use client";
-import { Id } from "@/convex/_generated/dataModel";
+import React from "react";
+import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
   ChevronDown,
@@ -10,19 +11,18 @@ import {
   Plus,
   Trash,
 } from "lucide-react";
-import React from "react";
-import { Skeleton } from "../ui/skeleton";
 import { useMutation } from "convex/react";
+import { Id } from "@/convex/_generated/dataModel";
 import { api } from "@/convex/_generated/api";
-import { useRouter } from "next/navigation";
-import { toast } from "sonner";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuSeparator,
   DropdownMenuContent,
   DropdownMenuItem,
-} from "../ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
+import { toast } from "sonner";
 import { useUser } from "@clerk/clerk-react";
 
 interface ItemProps {
@@ -55,6 +55,7 @@ const Item = ({
   const create = useMutation(api.document.create);
   const archive = useMutation(api.document.archive);
 
+  // Archive document
   const onArchive = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
     if (!id) return;
@@ -67,11 +68,13 @@ const Item = ({
     });
   };
 
+  // Expand or collapse document
   const handleExpand = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
     onExpand?.();
   };
 
+  // Create a new document
   const onCreate = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
     if (!id) return;

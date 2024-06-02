@@ -1,12 +1,12 @@
 "use client";
+import React, { useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Doc, Id } from "@/convex/_generated/dataModel";
-import { useQuery } from "convex/react";
-import { useParams, useRouter } from "next/navigation";
-import React, { useState } from "react";
-import Item from "./Item";
-import { cn } from "@/lib/utils";
 import { FileIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+import Item from "./Item";
 
 interface DocumentListProps {
   parentDocumentId?: Id<"documents">;
@@ -23,14 +23,17 @@ const DocumentList: React.FC<DocumentListProps> = ({
   const router = useRouter();
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
+  // Expand or collapse document
   const onExpand = (id: string) => {
     setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
+  // Fetch documents
   const documents = useQuery(api.document.getSidebar, {
     parentDocument: parentDocumentId,
   });
 
+  // Redirect to document
   const onRedirect = (id: string) => {
     router.push(`/documents/${id}`);
   };

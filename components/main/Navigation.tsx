@@ -1,4 +1,6 @@
 "use client";
+import React, { ElementRef, useEffect, useRef, useState } from "react";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
   AlignLeft,
@@ -9,20 +11,18 @@ import {
   Settings,
   Trash,
 } from "lucide-react";
-import { useParams, usePathname, useRouter } from "next/navigation";
-import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
-import UserItem from "./UserItem";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import UserItem from "./UserItem";
 import Item from "./Item";
-import { toast } from "sonner";
 import DocumentList from "./DocumentList";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import TrashBox from "./TrashBox";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import MainNavbar from "@/components/documents/MainNavbar";
 import { useSearch } from "@/hooks/useSearch";
 import { useSettings } from "@/hooks/useSettings";
-import MainNavbar from "../documents/MainNavbar";
+import { toast } from "sonner";
 
 const Navigation = () => {
   const router = useRouter();
@@ -52,6 +52,7 @@ const Navigation = () => {
     }
   }, [pathname, isMobile]);
 
+  // Resize sidebar
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -61,6 +62,7 @@ const Navigation = () => {
     document.addEventListener("mouseup", handleMouseUp);
   };
 
+  // Handle mouse move
   const handleMouseMove = (e: MouseEvent) => {
     if (!isResizingRef.current) return;
     let newWidth = e.clientX;
@@ -78,12 +80,14 @@ const Navigation = () => {
     }
   };
 
+  // Handle mouse up
   const handleMouseUp = () => {
     isResizingRef.current = false;
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
   };
 
+  // Reset sidebar width
   const resetWidth = () => {
     if (sidebarRef.current && navbarRef.current) {
       setIsCollapsed(false);
@@ -100,6 +104,7 @@ const Navigation = () => {
     }
   };
 
+  // Collapse sidebar
   const collapse = () => {
     if (sidebarRef.current && navbarRef.current) {
       setIsCollapsed(true);
@@ -113,6 +118,7 @@ const Navigation = () => {
     }
   };
 
+  // Create a new document
   const handleCreate = async () => {
     const promise = create({ title: "Untitled" }).then((documentId) => {
       router.push(`/documents/${documentId}`);

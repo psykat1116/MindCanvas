@@ -28,6 +28,7 @@ const Toolbar = ({ initialData, preview }: ToolbarProps) => {
     setTimeout(() => {
       setValue(initialData.title);
       inputRef.current?.focus();
+      inputRef.current?.setSelectionRange(0, inputRef.current.value.length);
     }, 0);
   };
 

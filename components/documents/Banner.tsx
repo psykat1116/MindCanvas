@@ -1,12 +1,12 @@
 "use client";
+import React from "react";
+import { useRouter } from "next/navigation";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { useMutation } from "convex/react";
-import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import ConfirmModal from "@/components/modal/ConfirmModal";
 import { toast } from "sonner";
-import React from "react";
-import { Button } from "../ui/button";
-import ConfirmModal from "../modal/ConfirmModal";
 
 interface BannerProps {
   documentId: Id<"documents">;
@@ -17,6 +17,7 @@ const Banner: React.FC<BannerProps> = ({ documentId }) => {
   const remove = useMutation(api.document.remove);
   const restore = useMutation(api.document.restore);
 
+  // Remove document
   const onRemove = () => {
     const promise = remove({ id: documentId });
     toast.promise(promise, {
@@ -27,6 +28,7 @@ const Banner: React.FC<BannerProps> = ({ documentId }) => {
     router.push("/documents");
   };
 
+  // Restore document
   const onRestore = () => {
     const promise = restore({ id: documentId });
     toast.promise(promise, {

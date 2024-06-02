@@ -1,5 +1,4 @@
 "use client";
-import { Doc } from "@/convex/_generated/dataModel";
 import React, { useState } from "react";
 import {
   Popover,
@@ -8,10 +7,11 @@ import {
 } from "@/components/ui/popover";
 import { useOrigin } from "@/hooks/useOrigin";
 import { useMutation } from "convex/react";
+import { Doc } from "@/convex/_generated/dataModel";
 import { api } from "@/convex/_generated/api";
-import { toast } from "sonner";
-import { Button } from "../ui/button";
 import { Check, Copy, Globe } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 interface PublishProps {
   initialData: Doc<"documents">;
@@ -25,6 +25,7 @@ const Publish: React.FC<PublishProps> = ({ initialData }) => {
 
   const url = `${origin}/preview/${initialData._id}`;
 
+  // Publish Note
   const onPublish = async () => {
     setIsSubmitting(true);
     const promise = update({
@@ -39,6 +40,7 @@ const Publish: React.FC<PublishProps> = ({ initialData }) => {
     });
   };
 
+  // Unpublish Note
   const onUnpublish = async () => {
     setIsSubmitting(true);
     const promise = update({
@@ -53,6 +55,7 @@ const Publish: React.FC<PublishProps> = ({ initialData }) => {
     });
   };
 
+  // Copy URL to clipboard
   const onCopy = () => {
     navigator.clipboard.writeText(url);
     setCopied(true);
