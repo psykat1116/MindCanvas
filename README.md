@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎯 MindCanvas provides a single space for organizing everything that matters similar to [Notion](https://www.notion.so/). It offers a clean and open surface for thinking, writing, and planning. It is made using NextJS, Tailwind CSS, Typescript, [EdgeStore](https://edgestore.dev/) For Storing Images, [Clerk](https://clerk.com/) For Authentication, [Convex](https://www.convex.dev/) As Our Database
 
-## Getting Started
-
-First, run the development server:
-
+## 🎯 Getting Started
+First, Clone The Repo The Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/psykat1116/MindCanvas.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Start The Server
+Start The Server on the Local Server. Change The Folder Name To Lower Case.
+```bash
+cd MindCanvas
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎯 Setup The .env.local File
+Create a .env.local File In The Root Folder With The Given Environment Variable
+```bash
+CONVEX_DEPLOYMENT=
+NEXT_PUBLIC_CONVEX_URL=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+EDGE_STORE_ACCESS_KEY=
+EDGE_STORE_SECRET_KEY=
+CONVEX_DEPLOY_KEY=
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🎯 Setup Edge Store
+Log In to the [Edge Store](https://edgestore.dev/) And Add A New Project. You Will Get Two Key
+```bash
+EDGE_STORE_ACCESS_KEY=
+EDGE_STORE_SECRET_KEY=
+```
 
-## Learn More
+## 🎯 Setup Clerk Authentication
+Login Into The [Clerk](https://clerk.com/) Create A New Project And Select What Login Option You Want To Keep Then Create The Project. You Will Get Two Key
+```bash
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🎯 Setup Convex And Integrate With Clerk Authentication
+Create An Account In [Convex](https://www.convex.dev/) And Create A New Project
+```bash
+npm install convex
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Go To The [Convex & Clerk](https://docs.convex.dev/auth/clerk) And Go Through The Following Steps Mentioned Below Complete Upto `Step 4` and then Run The Following Commands.
+```bash
+npm install @clerk/clerk-react
+npx convex dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+At The Time Of Development `npx convex dev` Must Run All The Time During Development. The `Deployment URL` Will Be In Settings In Development Mode Then Put It To The Variable.
+```bash
+NEXT_PUBLIC_CONVEX_URL=
+```
 
-## Deploy on Vercel
+At The Time Of Deploying Go To The Project Details In Change From `Development` To `Production`.Then Go To The Project Settings and Copy The `Deployment URL` to `NEXT_PUBLIC_CONVEX_URL` And Create a New `Deploy Key` And Paste It To `CONVEX_DEPLOY_KEY`
+```bash
+NEXT_PUBLIC_CONVEX_URL=
+CONVEX_DEPLOY_KEY=
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🎯 Tell Me You Face Any Problem During The Development & Production Into My Email From This [Profile](https://github.com/psykat1116) Or Tell Me In Issue Section. Tell Me You Want To Suggest Any Update. 
