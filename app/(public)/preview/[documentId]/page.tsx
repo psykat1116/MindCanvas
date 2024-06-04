@@ -42,7 +42,7 @@ const Page = ({ params }: { params: { documentId: Id<"documents"> } }) => {
   }
 
   return (
-    <div className="pb-40">
+    <div className="pb-40 dark:bg-dark">
       <Cover preview url={document.coverImage} />
       <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
         <Toolbar preview initialData={document} />

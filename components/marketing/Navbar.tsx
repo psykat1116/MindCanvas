@@ -38,7 +38,7 @@ const Navbar = () => {
         {isAuthenticated && !isLoading && (
           <>
             <UserButton afterSignOutUrl="/" />
-            <Button value={"ghost"} size={"sm"} asChild>
+            <Button value="ghost" size="sm" asChild>
               <Link href="/documents">Enter MindCanvas</Link>
             </Button>
           </>

@@ -87,8 +87,9 @@ export const archive = mutation({
 export const getTrash = query({
   handler: async (ctx) => {
     const identity = await ctx.auth.getUserIdentity();
-    if (!identity) throw new Error("Not Authenticated");
-
+    if (!identity) {
+      return [];
+    }
     const userId = identity.subject;
 
     const documents = await ctx.db
