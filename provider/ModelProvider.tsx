@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import SettingModal from "@/components/modal/SettingModal";
 import CoverImageModal from "@/components/modal/CoverImageModal";
+import TrashModal from "@/components/modal/TrashModal";
 
 const ModelProvider = () => {
   const [mounted, setMounted] = useState(false);
@@ -16,6 +17,7 @@ const ModelProvider = () => {
     <>
       <SettingModal />
       <CoverImageModal />
+      <TrashModal />
     </>
   );
 };
