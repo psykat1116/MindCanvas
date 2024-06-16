@@ -39,6 +39,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://mind-canvas-one.vercel.app/",
+    images: [
+      {
+        url: "https://github.com/psykat1116/MindCanvas/blob/master/public/OpenGraph.png?raw=true",
+        width: 1280,
+        height: 640,
+        alt: "MindCanvas: Unleash Your Creativity",
+      },
+    ],
   },
 };
 
