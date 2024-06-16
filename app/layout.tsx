@@ -31,6 +31,15 @@ export const metadata: Metadata = {
       },
     ],
   },
+  openGraph: {
+    title: "MindCanvas: Unleash Your Creativity",
+    description:
+      "MindCanvas is your ultimate digital workspace for brainstorming, planning, and collaborating. Our intuitive platform empowers individuals and teams to visualize their ideas, organize projects, and streamline workflows with ease. Whether you're crafting the next big project or simply mapping out your thoughts, MindCanvas offers the tools you need to bring your creativity to life. Join us and transform the way you think, plan, and create!",
+    siteName: "MindCanvas",
+    type: "website",
+    locale: "en_IN",
+    url: "https://mind-canvas-one.vercel.app/",
+  },
 };
 
 export default function RootLayout({
