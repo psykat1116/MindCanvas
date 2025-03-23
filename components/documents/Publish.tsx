@@ -1,17 +1,18 @@
 "use client";
+import { toast } from "sonner";
 import React, { useState } from "react";
+import { useMutation } from "convex/react";
+import { Check, Copy, Globe } from "lucide-react"
+;
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useOrigin } from "@/hooks/useOrigin";
-import { useMutation } from "convex/react";
-import { Doc } from "@/convex/_generated/dataModel";
 import { api } from "@/convex/_generated/api";
-import { Check, Copy, Globe } from "lucide-react";
+import { useOrigin } from "@/hooks/useOrigin";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+import { Doc } from "@/convex/_generated/dataModel";
 
 interface PublishProps {
   initialData: Doc<"documents">;

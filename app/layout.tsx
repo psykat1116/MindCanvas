@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     icon: [
       {
         media: "(prefers-color-scheme: light)",
-        url: "/LogoDark.png",
-        href: "/LogoDark.png",
+        url: "/IconDark.svg",
+        href: "/IconDark.svg",
       },
       {
         media: "(prefers-color-scheme: dark)",
-        url: "/LogoLight.png",
-        href: "/LogoLight.png",
+        url: "/IconLight.svg",
+        href: "/IconLight.svg",
       },
     ],
   },
@@ -48,6 +48,11 @@ export const metadata: Metadata = {
       },
     ],
   },
+  authors: {
+    name: "Saikat Samanta",
+    url: "https://portfolio-one-gilt-34.vercel.app/",
+  },
+  keywords: ["note keeper", "notion clone", "notion clone github"],
 };
 
 export default function RootLayout({

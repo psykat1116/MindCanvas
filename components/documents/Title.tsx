@@ -1,11 +1,12 @@
 "use client";
 import { useRef, useState } from "react";
 import { useMutation } from "convex/react";
-import { Doc } from "@/convex/_generated/dataModel";
+
 import { api } from "@/convex/_generated/api";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Doc } from "@/convex/_generated/dataModel";
 
 interface TitleProps {
   initialData: Doc<"documents">;

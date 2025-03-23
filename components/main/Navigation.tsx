@@ -1,7 +1,11 @@
 "use client";
-import React, { ElementRef, useEffect, useRef, useState } from "react";
-import { useParams, usePathname, useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import { useMutation } from "convex/react";
+import { useMediaQuery } from "usehooks-ts";
+import { api } from "@/convex/_generated/api";
+import { ElementRef, useEffect, useRef, useState } from "react";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import {
   AlignLeft,
   ChevronsLeft,
@@ -11,17 +15,14 @@ import {
   Settings,
   Trash,
 } from "lucide-react";
-import { useMediaQuery } from "usehooks-ts";
-import { useMutation, useQuery } from "convex/react";
-import { api } from "@/convex/_generated/api";
-import UserItem from "./UserItem";
-import Item from "./Item";
-import DocumentList from "./DocumentList";
-import MainNavbar from "@/components/documents/MainNavbar";
+
+import Item from "@/components/main/Item";
+import { useTrash } from "@/hooks/useTrash";
 import { useSearch } from "@/hooks/useSearch";
 import { useSettings } from "@/hooks/useSettings";
-import { toast } from "sonner";
-import { useTrash } from "@/hooks/useTrash";
+import UserItem from "@/components/main/UserItem";
+import DocumentList from "@/components/main/DocumentList";
+import MainNavbar from "@/components/documents/MainNavbar";
 
 const Navigation = () => {
   const router = useRouter();

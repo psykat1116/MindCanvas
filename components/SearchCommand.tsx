@@ -1,7 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { File } from "lucide-react";
+import { useQuery } from "convex/react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useUser } from "@clerk/clerk-react";
+
 import {
   CommandDialog,
   CommandEmpty,
@@ -10,9 +13,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { useUser } from "@clerk/clerk-react";
 import { useSearch } from "@/hooks/useSearch";
 
 const SearchCommand = () => {

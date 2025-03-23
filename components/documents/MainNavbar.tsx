@@ -1,16 +1,16 @@
 "use client";
-import React from "react";
-import { useParams } from "next/navigation";
 import { useQuery } from "convex/react";
-import { api } from "@/convex/_generated/api";
-import { Id } from "@/convex/_generated/dataModel";
-import Title from "@/components/documents/Title";
-import Banner from "./Banner";
-import Menu from "./Menu";
-import Publish from "./Publish";
-import { cn } from "@/lib/utils";
 import { AlignLeft } from "lucide-react";
 import { useMediaQuery } from "usehooks-ts";
+import { useParams } from "next/navigation";
+
+import { cn } from "@/lib/utils";
+import { api } from "@/convex/_generated/api";
+import Menu from "@/components/documents/Menu";
+import Title from "@/components/documents/Title";
+import { Id } from "@/convex/_generated/dataModel";
+import Banner from "@/components/documents/Banner";
+import Publish from "@/components/documents/Publish";
 
 interface MainNavbarProps {
   isCollapsed: boolean;

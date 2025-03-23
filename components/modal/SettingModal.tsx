@@ -1,6 +1,6 @@
 "use client";
-import { useSettings } from "@/hooks/useSettings";
 import { Label } from "@/components/ui/label";
+import { useSettings } from "@/hooks/useSettings";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Dialog, DialogHeader, DialogContent } from "@/components/ui/dialog";
 

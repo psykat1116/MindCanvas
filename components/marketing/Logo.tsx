@@ -1,20 +1,19 @@
-import React from "react";
 import Image from "next/image";
 
 const Logo = () => {
   return (
     <div className="hidden md:flex items-center gap-x-2">
       <Image
-        src="/LogoDark.png"
-        height={25}
-        width={25}
+        src="/IconDark.svg"
+        height={45}
+        width={45}
         alt="logo"
         className="dark:hidden"
       />
       <Image
-        src="/LogoLight.png"
-        height={25}
-        width={25}
+        src="/IconLight.svg"
+        height={45}
+        width={45}
         alt="logo"
         className="hidden dark:block"
       />

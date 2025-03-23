@@ -1,7 +1,11 @@
 "use client";
-import React from "react";
-import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import { useMutation } from "convex/react";
+import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/clerk-react";
+import { api } from "@/convex/_generated/api";
+import { Id } from "@/convex/_generated/dataModel";
 import {
   ChevronDown,
   ChevronRight,
@@ -11,10 +15,7 @@ import {
   Plus,
   Trash,
 } from "lucide-react";
-import { useMutation } from "convex/react";
-import { Id } from "@/convex/_generated/dataModel";
-import { api } from "@/convex/_generated/api";
-import { Skeleton } from "@/components/ui/skeleton";
+
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -22,8 +23,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
-import { toast } from "sonner";
-import { useUser } from "@clerk/clerk-react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface ItemProps {
   label: string;

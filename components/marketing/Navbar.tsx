@@ -1,14 +1,14 @@
 "use client";
-import React from "react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { useConvexAuth } from "convex/react";
-import ThemeToggle from "../ThemeToggle";
-import Logo from "./Logo";
-import { Button } from "@/components/ui/button";
-import { Spinner } from "../Spinner";
 import { SignInButton, UserButton } from "@clerk/clerk-react";
+
+import { cn } from "@/lib/utils";
+import Logo from "@/components/marketing/Logo";
+import { Spinner } from "@/components/Spinner";
+import { Button } from "@/components/ui/button";
 import useScrollTop from "@/hooks/useScrollTop";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
