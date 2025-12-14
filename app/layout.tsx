@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/provider/ThemeProvider";
 import { ConvexClientProvider } from "@/provider/ConvexProvider";
 import ModelProvider from "@/provider/ModelProvider";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/next";
 import { EdgeStoreProvider } from "@/lib/edgestore";
 
 const poppins = Poppins({
@@ -75,6 +76,7 @@ export default function RootLayout({
               <Toaster position="bottom-center" />
               <ModelProvider />
               {children}
+              <Analytics />
             </ThemeProvider>
           </EdgeStoreProvider>
         </ConvexClientProvider>
